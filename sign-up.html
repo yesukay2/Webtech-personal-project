@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="style.css" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        Saddle Rides Co. Ltd
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <link rel="import" href="./tabs.html"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+      Saddle Rides Co. Ltd
     </title>
 </head>
 <body>
+  <header class="header">
+    <nav class="navbar navbar-style">
+      <div class="container">
+        <a href=""> <img class="logo" src="logo.png"></a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Employee Log</a></li>
+          <li><a href="#">Horse Log</a></li>
+      </ul>
+  </nav>  
+  </header>
 <div class="form">
-      
-    <ul class="tab-group">
-      <li class="tab active"><a href="#signup">Sign Up</a></li>
-      <li class="tab"><a href="#login">Log In</a></li>
-    </ul>
-    
     <div class="tab-content">
       <div id="signup">   
         <h1>Sign Up</h1>
@@ -26,14 +41,14 @@
         <div class="top-row">
           <div class="field-wrap">
             <label>
-              First Name<span class="req">*</span>
+              First Name<span class="req"></span>
             </label>
             <input type="text" required autocomplete="off">
           </div>
       
           <div class="field-wrap">
             <label>
-              Last Name<span class="req">*</span>
+              Last Name<span class="req"></span>
             </label>
             <input type="text" required autocomplete="off">
           </div>
@@ -41,28 +56,28 @@
 
         <div class="field-wrap">
           <label>
-            Email <span class="req">*</span>
+            Email <span class="req"></span>
           </label>
           <input type="email" required autocomplete="off">
         </div>
 
         <div class="field-wrap">
             <label>
-              Address<span class="req">*</span>
+              Address<span class="req"></span>
             </label>
             <input type="text" required autocomplete="off">
           </div>
         
         <div class="field-wrap">
           <label>
-            Set A Password<span class="req">*</span>
+            Set A Password<span class="req"></span>
           </label>
           <input type="password" required autocomplete="off">
         </div>
 
         <div class="field-wrap">
             <label>
-              Confirm Password<span class="req">*</span>
+              Confirm Password<span class="req"></span>
             </label>
             <input type="password" required autocomplete="off">
         </div>
