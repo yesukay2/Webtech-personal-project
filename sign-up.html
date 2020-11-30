@@ -10,37 +10,41 @@
 <body> 
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
-            <form class="login100-form flex-sb flex-w" action="" method="post">
+            <form class="login100-form flex-sb flex-w" action="sign-up.php" method="post">
                 <span class="login100-form-title">
                     <a href="">
                         <i class="fas fa-user"></i>
                     </a>
                 </span>
                 <div class="wrap-input100 m-b-16">
-                  <input class="input100" type="text" placeholder="Firstname" required>
+                  <input class="input100" type="text" name="firstname" placeholder="Firstname" required>
                   <span class="focus-input100"></span>
               </div>
               <div class="wrap-input100 m-b-16">
-                <input class="input100" type="text" placeholder="Lastname" required>
+                <input class="input100" type="text" name="lastname" placeholder="Lastname" required>
                 <span class="focus-input100"></span>
-            </div>
+              </div>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="email" placeholder="Email" required>
+                    <input class="input100" type="email" name="email" placeholder="Email" required>
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 m-b-16">
-                  <input class="input100" type="text" placeholder="Address" required>
+                  <input class="input100" type="mobile" name="mobile" placeholder="Mobile" required>
                   <span class="focus-input100"></span>
-              </div>
+                </div>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="password" placeholder="Choose Password" required>
+                  <input class="input100" type="text" name="address" placeholder="Address" required>
+                  <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="password" name="password1" placeholder="Choose Password" required>
                     <span class="focus-input100"></span>
                     <small>Password must be at least 8 characters with symbols, numbers and  letters</small>
                 </div>
                 <div class="wrap-input100 m-b-16">
-                  <input class="input100" type="password" placeholder="Confirm Password" required>
+                  <input class="input100" type="password" name="password2" placeholder="Confirm Password" required>
                   <span class="focus-input100"></span>
-              </div>
+                </div>
               <div class="radio">
                 <input class="form-check-input" type="radio" name="statusradio" id="employeeradio" value="employeeradio" unchecked>
                 <label class="form-check-label" for="employeeradio">
@@ -55,7 +59,7 @@
               </div>
                 <div class="container-login100-form-btn m-t-17">
                     <div class="w-full beforeNone text-center">
-                        <button type="submit" class="nv-login-submit login100-form-btn" name="Login">Sign Up</button>
+                        <button type="submit" class="nv-login-submit login100-form-btn" name="Sign-up">Sign Up</button>
                     </div>
                 </div>
             </form>
