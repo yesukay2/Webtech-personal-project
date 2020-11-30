@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <link rel="import" href="./tabs.html">
-    <meta charset="UTF-8">
+    <title>Login Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saddle Rides Co. Ltd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+    <link rel="stylesheet" href="login.css"> 
 </head>
-<body>
-    <div id="login">  
-        <form action="/" method="post">
-          <h1>Login</h1>
-          <div class="field-wrap">
-          <label>
-            Email Address<span class="req">*</span>
-          </label>
-          <input type="email" required autocomplete="off">
+<body> 
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
+            <form class="login100-form flex-sb flex-w" action="" method="post">
+                <span class="login100-form-title">
+                    <a href="" target="_blank">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" placeholder="Email">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                  <input class="input100" type="text" placeholder="ID No.">
+                  <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <div class="w-full beforeNone text-center">
+                        <input type="submit" class="nv-login-submit login100-form-btn" name="submit">
+                    </div>
+                </div>
+            </form>
         </div>
-        
-        <div class="field-wrap">
-          <label>
-            Password<span class="req">*</span>
-          </label>
-          <input type="password" required autocomplete="off">
-        </div>
-
-        <div class="field-wrap">
-            <label>
-              Admin Password<span class="req">*</span>
-            </label>
-            <input type="password" required autocomplete="off">
-        </div>
-        
-        <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
-        
-        <button class="button button-block">Log In</button>
-        
-        </form>
-    </div>
+    </div> 
 </body>
 </html>
+
+

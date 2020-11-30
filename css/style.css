@@ -1,11 +1,11 @@
-/*-- Body Reset --*/
+/*Body Reset*/
 body {
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
   color: #616971;
 }
 
-/*============= TOP BAR HEADER =============*/
+/* TOP BAR HEADER */
 
 .top-bar{
   background: #7aaec4;
@@ -18,7 +18,7 @@ body {
   font-size: 1.1rem;
 }
 
-/*============= NAVIGATION =============*/
+/* NAVIGATION */
 
 .navbar-brand img {
   height: 10rem;
@@ -44,7 +44,7 @@ body {
 .nav-link:hover{
   color: #4981b3 !important;
 }
-/*============= CAROUSEL =============*/
+/* CAROUSEL */
 
 #carousel{
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, .1);
@@ -89,19 +89,15 @@ body {
   background-color: #ac2615;
   border: .1rem solid #ac2615;
 }
-/*===== FIXED BACKGROUND IMG =====*/
+/* FIXED BACKGROUND IMG */
 
-/*-- Jumbotron --*/
+/*Jumbotron*/
 #note{
   text-align: center;
   color: #ac2615;
 }
 
-/*-- Emoji Navbar --*/
-
-
-
-/*============= FOOTER =============*/
+/*FOOTER*/
 
 footer{
   background-color: rgba(0, 0, 0, .8);
@@ -141,14 +137,29 @@ footer .svg-inline--fa:hover{
   margin: 0 auto;
 } */
 
-/*============= SOCKET =============*/
+#footerlogo{
+  margin-left: -70%;
+  border-radius: 1rem;
+  height: 5rem;
+  position: absolute;
+  left: 0;
+}
+ul.values li{
+    list-style-type: disc !important;
+    display: inline;
+    max-width: 16rem;
+    margin: .1rem auto;
+    text-align: center;
+    
+}
+/*SOCKET*/
 
 .socket {
   background-color: #222222;
   border-top: .1rem solid #4981b3;
 }
 
-/*============= MEDIA QUERIES =============*/
+/*MEDIA QUERIES*/
 
 /* Devices under 1199px (xl) */
 @media (max-width: 1199.98px) {
@@ -166,33 +177,13 @@ footer .svg-inline--fa:hover{
   }
 }
 
-
-/*============ BOOTSTRAP BREAK POINTS:
-
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-
-=============*/
-
-/*-- Bootstrap Mobile Gutter Fix --*/
+/*Bootstrap Mobile Gutter Fix*/
 .row, .container-fluid {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
 
-/*-- Fixed Background Image --*/
+/*Fixed Background Image*/
 .fixed-background {
   position: relative;
   width: 100%;
