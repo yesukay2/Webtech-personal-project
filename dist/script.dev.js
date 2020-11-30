@@ -1,9 +1,9 @@
 "use strict";
 
-function ifyes() {
-  if (document.getElementById('yes').checked) {
-    document.getElementById('ifyes').style.display = 'block';
+function vehiclereg(x) {
+  if (x == 1) {
+    document.getElementById('vehiclereg').style.display = 'block';
   } else {
-    document.getElementById('ifyes').style.display = 'none';
+    document.getElementById('vehiclereg').style.display = 'none';
   }
 }

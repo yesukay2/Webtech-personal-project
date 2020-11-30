@@ -1,103 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-      Saddle Rides Co. Ltd
-    </title>
-  <link rel ="shortcut icon" href="./favicon.ico">
-  <!-- Bootstrap css  -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- style css -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+<head>
+    <title>Saddle Rides Co. Ltd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+    <link rel="stylesheet" href="login.css"> 
 </head>
-<body>
-  <header class="header">
-    <nav class="navbar navbar-style">
-      <div class="container">
-        <a href=""> <img class="logo" src="logo.png"></a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Log In</a></li>
-          <li><a href="#">Employee Log</a></li>
-          <li><a href="#">Horse Log</a></li>
-      </ul>
-  </nav>  
-  </header>
-<div class="form">
-    <div class="tab-content">
-      <div id="signup">   
-        <h1>Sign Up</h1>
-        
-        <form action="#" method="post">
-        
-        <div class="top-row">
-          <div class="field-wrap">
-            <label>
-              First Name<span class="req"></span>
-            </label>
-            <input type="text" required autocomplete="off">
-          </div>
-      
-          <div class="field-wrap">
-            <label>
-              Last Name<span class="req"></span>
-            </label>
-            <input type="text" required autocomplete="off">
-          </div>
+<body> 
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
+            <form class="login100-form flex-sb flex-w" action="" method="post">
+                <span class="login100-form-title">
+                    <a href="">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </span>
+                <div class="wrap-input100 m-b-16">
+                  <input class="input100" type="text" placeholder="Firstname" required>
+                  <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 m-b-16">
+                <input class="input100" type="text" placeholder="Lastname" required>
+                <span class="focus-input100"></span>
+            </div>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" placeholder="Email" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                  <input class="input100" type="text" placeholder="Address" required>
+                  <span class="focus-input100"></span>
+              </div>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="password" placeholder="Choose Password" required>
+                    <span class="focus-input100"></span>
+                    <small>Password must be at least 8 characters with symbols, numbers and  letters</small>
+                </div>
+                <div class="wrap-input100 m-b-16">
+                  <input class="input100" type="password" placeholder="Confirm Password" required>
+                  <span class="focus-input100"></span>
+              </div>
+              <div class="radio">
+                <input class="form-check-input" type="radio" name="statusradio" id="employeeradio" value="employeeradio" unchecked>
+                <label class="form-check-label" for="employeeradio">
+                  Employee
+                </label>
+              </div>
+              <div class="radio">
+                <input class="form-check-input" type="radio" name="statusradio" id="clientradio" value="clientradio" unchecked>
+                <label class="form-check-label" for="clientradio">
+                  Client
+                </label>
+              </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <div class="w-full beforeNone text-center">
+                        <button type="submit" class="nv-login-submit login100-form-btn" name="Login">Sign Up</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <div class="field-wrap">
-          <label>
-            Email <span class="req"></span>
-          </label>
-          <input type="email" required autocomplete="off">
-        </div>
-
-        <div class="field-wrap">
-            <label>
-              Address<span class="req"></span>
-            </label>
-            <input type="text" required autocomplete="off">
-          </div>
-        
-        <div class="field-wrap">
-          <label>
-            Set A Password<span class="req"></span>
-          </label>
-          <input type="password" required autocomplete="off">
-        </div>
-
-        <div class="field-wrap">
-            <label>
-              Confirm Password<span class="req"></span>
-            </label>
-            <input type="password" required autocomplete="off">
-        </div>
-          
-        <div class="field-wrap">
-            <input type="radio" id="employee" name="employee" value="employee">
-            <label for="employee">Employee</label><br>
-            <input type="radio" id="client" name="client" value="client"> 
-            <label for="client">Client</label><br>
-        </div>
-        
-        <button type="submit" class="button button-block">Sign Up</button>
-        
-        </form>
-
-      </div>
-      
-      
-      </div>
-      
-    </div>
+    </div> 
 </body>
 </html>
+
+

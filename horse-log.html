@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="import" href="./tabs.html">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saddle Rides</title>
-</head>
-<body>
-    <form>
-        <h1>
-            Horse Log
-        </h1>
-        <div>
-            <label for="horse-id">Horse ID: </label>
-            <input type="text" required>
-        </div>
-
-        <div>
-            <label for="client-name">Client Name:</label>
-            <input type="text" required>
-        </div>
-        
-        <div>
-            <label for="client-id">Client ID:</label>
-            <input type="text" required>
-        </div>
-
-        <div>
-            <label for="date">Date:</label>
-            <input type="date" required>
-        </div>
-
-        <div>
-            <label for="vehicle-out">Vehicle Out</label>
-            <input type="text" required>
-        </div>
-
-        <div>
-            <label for="time-out">Time Out:</label>
-            <input type="time" required>
-        </div>
-
-        <div>
-            <label for="return-date">Return Date:</label>
-            <input type="date" required>
-        </div>
-
-        <div>
-            <label for="time-in">Time In</label>
-            <input type="time">
-        </div>
-    </form>
-</body>
+    <head>
+        <title>Saddle Rides Co. Ltd</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+        <link rel="stylesheet" href="login.css">
+    </head>         
+        <body>
+            <div class="container-login100">
+                <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
+                    <form class="login100-form flex-sb flex-w" action="" method="post">
+                        <span class="login100-form-title">
+                            <a href="">
+                                <i class="fas fa-shipping-fast"></i>
+                            </a>
+                        </span>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="text" placeholder="Horse ID" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="text" placeholder="Client Name" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="text" placeholder="Client ID" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="date" placeholder="Date" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="text" placeholder="Vehicle Registration No." required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="time" placeholder="Time Out" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="date" placeholder="Return Date" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="time" placeholder="Time In" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-login100-form-btn m-t-17">
+                            <div class="w-full beforeNone text-center">
+                                <button type="submit" class="nv-login-submit login100-form-btn" name="Log">Log</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </body>
 </html>

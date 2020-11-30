@@ -1,48 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="import" href="./tabs.html">
-    <script src="script.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saddle Rides Co. Ltd</title>
-</head>
-<body>
-    <form action="#" method="POST">
-        <h1>
-            Employee Log
-        </h1>
-        <div>
-            <label>Date: </label>
-            <input type="date" required>
-        </div>
-        
-        <div>
-            <label>Employee Name: </label>
-            <input type="text">
-        </div>
+<html>
 
-        <div>
-            <label>Vehicle</label>
-            <input type="radio" id="yes"><label for="yes">Yes</label>
-            <input type="radio" id="no"><label for="no">No</label>
-        </div>
+    <head>
+        <title>Saddle Rides Co. Ltd</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+        <link rel="stylesheet" href="login.css">
+        <script src="script.js"></script>
+    </head>
 
-        <div id="ifyes" style="display: none;">
-            <label>Registration:</label>
-            <input type="text" required>
+    <body>
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
+                <form class="login100-form flex-sb flex-w" action="" method="post">
+                    <span class="login100-form-title">
+                        <a href="">
+                            <i class="fas fa-walking"></i>
+                        </a>
+                    </span>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="date" placeholder="Date" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" placeholder="Employee Name" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="radio">
+                        <div><label><em><strong>Vehicle</strong></em></label></div>
+                        <input class="form-check-input" type="radio" name="statusradio" id="yes" onclick="vehiclereg(1)"
+                            value="yes" unchecked>
+                        <label class="form-check-label" for="yes">
+                            Yes
+                        </label>
+                        <input class="form-check-input" type="radio" name="statusradio" id="no" onclick="vehiclereg(0)"
+                            value="no" unchecked>
+                        <label class="form-check-label" for="no">
+                            No
+                        </label>
+                    </div>
+                    <div class="wrap-input100 m-b-16"  id="vehiclereg" style="display: none;">
+                        <input class="input100" type="text" placeholder="Vehicle Registration No.">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="time" placeholder="Time Out" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" placeholder="Destination & Purpose" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="time" placeholder="Time In" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <div class="w-full beforeNone text-center">
+                            <button type="submit" class="nv-login-submit login100-form-btn" name="Log">Log</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+    </body>
 
-        <div>
-            <label>Time Out: </label>
-            <input  type="time" required>
-        </div>
-
-        <div>
-            <label>Time In: </label>
-            <input  type="time">
-        </div>
-            <button>Submit</button>
-    </form>
-</body>
 </html>
