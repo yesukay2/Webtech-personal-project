@@ -23,13 +23,13 @@
         if(mysqli_connect_error()) {
             die('Connection error ('. mysqli_connect_errno().')');
         }else{
-            $sql_query  = "INSERT INTO sign_up (firstname, lastname, email, mobile, address, password1, password2, statusradio)
+            $sql_query  = "INSERT INTO employees (firstname, lastname, email, mobile, address, password1, password2, statusradio)
             VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address', '$password1', '$password2', '$statusradio')";
 
             if ($conn->query($sql_query)){
                 echo " New Profile Added!";
             }else{
-                echo "Error: " . $sql . "" . mysqli_error($conn);
+                echo "Error: " . $sql_query . "" . mysqli_error($conn);
             }
             mysqli_close($conn);
         }

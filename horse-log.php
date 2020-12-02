@@ -26,11 +26,11 @@
             VALUES ('$horse_id', '$client_name','$client_id', '$date', '$vehicle_reg', '$time_out', '$return_date', '$time_in')";
 
             if ($conn->query($sql_query)){
-                echo " Logged Succesfully";
+                echo "Logged Succesfully";
             }else{
                 echo "Error: " . $sql_query . "" . mysqli_error($conn);
             }
-            mysqli_close($conn);
+            mysqli_close($conn); //close connection
         }
     }
 ?> 
