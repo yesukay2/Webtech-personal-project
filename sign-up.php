@@ -29,7 +29,7 @@
             if ($conn->query($sql_query)){
                 echo " New Profile Added!";
             }else{
-                echo "Error: " . $sql_query . "" . mysqli_error($conn);
+                echo "Error: " . "" . mysqli_error($conn);
             }
             mysqli_close($conn);
         }

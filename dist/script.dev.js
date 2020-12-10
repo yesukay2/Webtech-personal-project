@@ -18,25 +18,25 @@ function showpassword(y) {
     document.getElementById('password1').style.display = 'none';
     document.getElementById('password2').style.display = 'none';
   }
-} // regex validation
+}
 
+function validate() {
+  // regex validation
+  var password = document.getElementById('password').value;
+  var error = document.getElementById('error');
+  console.log('got here');
+  var regex = /(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?@!#$%^&*_=+|}{"':;><,~`])[a-zA-Z0-9?@!#$%^&*_=+|}{"':;><,~`]{8,}/;
+  var currentvalue = password;
+  console.log(currentvalue);
+  var validate = regex.test(currentvalue);
 
-var password = document.getElementById('password');
-var error = document.getElementById('error');
-
-function validate(form) {
-  password.addEventListener('input', function (e) {
-    var regex = /(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?@!#$%^&*_=+|}{"':;><,~`])[a-zA-Z0-9?@!#$%^&*_=+|}{"':;><,~`]{8,}/;
-    var currentvalue = e.target.value;
-    var validate = regex.test(currentvalue);
-
-    if (validate) {
-      e.preventDefault();
-      error.style.display = 'none';
-      return false;
-    } else {
-      error.style.display = 'block';
-      return true;
-    }
-  });
+  if (validate) {
+    console.log('passed test!');
+    error.style.display = 'none';
+    return false;
+  } else {
+    console.log('failed test!');
+    error.style.display = 'block';
+    return true;
+  }
 }
