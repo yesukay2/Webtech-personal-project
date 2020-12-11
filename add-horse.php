@@ -28,5 +28,6 @@
             }
             mysqli_close($conn);
         }
+        header("Location: add-horse1.php?status=true");
     }
 ?> 

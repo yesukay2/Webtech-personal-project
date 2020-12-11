@@ -23,15 +23,34 @@
         if(mysqli_connect_error()) {
             die('Connection error ('. mysqli_connect_errno().')');
         }else{
-            $sql_query  = "INSERT INTO employees (firstname, lastname, email, mobile, address, password1, password2, statusradio)
-            VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address', '$password1', '$password2', '$statusradio')";
+            if ($statusradio == 'client'){
+                $sql_query1 = "INSERT INTO clients (firstname, lastname, email, mobile, address)
+                VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address')";
 
-            if ($conn->query($sql_query)){
-                echo " New Profile Added!";
+                if ($conn->query($sql_query1)){
+                    // echo " New Profile Added!";
+                    //echo "<script>alert('New Profile Added!')</script>";
+                }else{
+                    echo "Error: " . "" . mysqli_error($conn);
+                }
+                mysqli_close($conn);
             }else{
-                echo "Error: " . "" . mysqli_error($conn);
+                $sql_query2  = "INSERT INTO employees (firstname, lastname, email, mobile, address, password1, password2, statusradio)
+                VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address', '$password1', '$password2', '$statusradio')";
+
+                if ($conn->query($sql_query2)){
+                    //echo "<script>alert('New Profile Added!')</script>";
+                    
+                    exit();
+                }else{
+                    echo "Error: " . "" . mysqli_error($conn);
+                }
+                mysqli_close($conn);
             }
-            mysqli_close($conn);
+            header("Location: ./sign-up1.php?status=true");
+
+            
         }
+        // header("Location: ./sign-up1.php?status=true");
     }
 ?> 

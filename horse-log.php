@@ -32,5 +32,6 @@
             }
             mysqli_close($conn); //close connection
         }
+        header("Location: horse-log1.php?status=true");
     }
 ?> 

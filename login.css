@@ -165,5 +165,14 @@
    margin:auto;
  }
  
+ .radio{
+   margin: auto;
+   justify-content: center;
+   display: block;
+   margin-left:20px;
+ }
  
- 
+ /* #nolabel{
+  margin-left:20px;
+ }
+  */

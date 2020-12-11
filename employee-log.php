@@ -32,5 +32,6 @@
             }
             mysqli_close($conn);
         }
+        header("Location: employee-log1.php?status=true");
     }
 ?> 
