@@ -46,11 +46,13 @@
                     echo "Error: " . "" . mysqli_error($conn);
                 }
                 mysqli_close($conn);
-            }
-            header("Location: ./sign-up1.php?status=true");
 
+                
+            }
             
+
+            header("Location: ./sign-up1.php?status=true");
         }
-        // header("Location: ./sign-up1.php?status=true");
+        
     }
 ?> 

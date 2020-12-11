@@ -64,7 +64,5 @@ var error = document.getElementById('error');
             // console.log('failed test!');
             error.style.display = 'block';
             return false;
-        }  
-        
-        
+        }   
 }
