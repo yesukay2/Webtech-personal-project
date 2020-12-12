@@ -8,8 +8,8 @@
  //database connection 
  $conn = new mysqli($host, $username, $password, $database_name);
  
-    if(isset($_GET['id_no'])) {
-        $id_no = $_GET['id_no'];
+    if(isset($_GET['delete_id'])) {
+        $id_no = $_GET['delete_id'];
         $query = "DELETE FROM employee_log WHERE id_no = '$id_no'";
 
         $data = mysqli_query($conn, $query);
@@ -96,6 +96,7 @@
         <table>
             <tr>
                 <th>Date</th>
+                <th>Log ID</th>
                 <th>Name</th>
                 <th>ID NO</th>
                 <th>Vehicle</th>
@@ -107,12 +108,12 @@
             </tr>
             <?php 
                 $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-                $query = "SELECT date, employee_name, id_no, vehicle_option, vehicle_reg, time_out, dest_purp, time_in FROM employee_log";
+                $query = "SELECT date, employee_log_id, employee_name, id_no, vehicle_option, vehicle_reg, time_out, dest_purp, time_in FROM employee_log";
                 $results = $conn->query($query);
 
                 if ($results->num_rows > 0){
                     while ($row = $results->fetch_assoc()){
-                        echo "<tr><td>" . $row["date"] . "</td><td>" .  $row["employee_name"] . "</td><td>" . $row["id_no"] . "</td><td>" .  $row["vehicle_option"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["dest_purp"] . "</td><td>" .  $row["time_in"] ."</td><td> <a href = 'employee-log-table.php?id_no=$row[id_no]'>Delete</td></tr>";
+                        echo "<tr><td>" . $row["date"] . "</td><td>" .  $row["employee_log_id"] . "</td><td>" .  $row["employee_name"] . "</td><td>" . $row["id_no"] . "</td><td>" .  $row["vehicle_option"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["dest_purp"] . "</td><td>" .  $row["time_in"] . "</td><td> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</td></tr>";
                     }
                 }else{
                     echo "No Results";
@@ -120,6 +121,54 @@
                 $conn->close();
             ?>
         </table>
+        <!----Delete Popup Modal (Bootstrap) ---> 
+        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                        <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form action="horse-table.php" method="POST">
+                        <div class="modal-body">
+                            <input type="hidden" value="" name= "delete_id" id="delete_id">
+                            <h4>Do you want to delete this data?</h4>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" id="closeModalBtn" class="btn btn-secondary" data-dismiss="modal"> NO </button>
+                            <button type="submit" name="deletedata" class="btn btn-primary">YES!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        <script>
+            $(document).ready(function(){
+                $('.deletebtn').on('click', function(){
+                    $('#deletemodal').modal('show');
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function(){
+                        return (this).innerHTML;
+                        // console.log((this).innerHTML);
+                    }).get();
+                    
+                    console.log(data);
+
+                    $('#delete_id').val(data[1]);
+                });
+
+                $('#closeModalBtn').on('click', function(){
+                    $('#deletemodal').modal('hide');
+                });
+                
+            });
+        </script>
+
 
         <!-- Script Source Files -->
 
