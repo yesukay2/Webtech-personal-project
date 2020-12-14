@@ -63,7 +63,7 @@ if(isset($_GET['status'])) {
             <!-- End Navigation -->
             <div class="container-login100">
                 <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
-                    <form class="login100-form flex-sb flex-w" action="new-horse-log.php" method="POST">
+                    <form class="login100-form flex-sb flex-w" action="horse-log.php" method="POST">
                         <span class="login100-form-title">
                             <a href="">
                                 <i class="fas fa-shipping-fast"></i>
@@ -96,6 +96,10 @@ if(isset($_GET['status'])) {
                         </div>
                         <div class="wrap-input100 m-b-16">
                             <input class="input100" type="date" name="return-date" placeholder="Return Date">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="date" name="returned-date" placeholder="Returned Date">
                             <span class="focus-input100"></span>
                         </div>
                         <div class="container-login100-form-btn m-t-17">

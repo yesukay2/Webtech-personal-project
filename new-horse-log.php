@@ -6,6 +6,8 @@ $date;
 $vehicle_reg= "";
 $time_out;
 $horse_log_id_from_get;
+$return_date;
+$returned_date;
 
 $update = 0;
 
@@ -24,7 +26,7 @@ if(isset($_GET['id'])) {
     $horse_log_id_from_get = $_GET['id'];
     $hello = "hello";
     $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-    $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date FROM horse_log WHERE horse_log_id=".$horse_log_id_from_get;
+    $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date, returned_date FROM horse_log WHERE horse_log_id=".$horse_log_id_from_get;
     $results = $conn->query($query);
 
     if ($results->num_rows > 0){
@@ -35,6 +37,11 @@ if(isset($_GET['id'])) {
             $date = $row["date"];
             $vehicle_reg = $row['vehicle_reg'];
             $time_out = $row['time_out'];
+            $return_date = $row['return_date'];
+            $returned_date = $row['returned_date'];
+
+
+            
         }
     }else{
         echo "No Results";
@@ -102,31 +109,35 @@ if(isset($_GET['id'])) {
                         </span>
                         <input type="hidden" name="horse_log_id" value="<?php echo $horse_log_id_from_get ?>" />
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="horse-id" value="<?php echo $horse_id ?>" placeholder="Horse ID" required>
+                            <input class="input100" type="text" name="horse-id" value="<?php echo $horse_id ?>" placeholder="Horse ID" >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="client-name" value="<?php echo $client_name ?>"  placeholder="Client Name" required>
+                            <input class="input100" type="text" name="client-name" value="<?php echo $client_name ?>"  placeholder="Client Name" >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="client-id" value="<?php echo $client_id ?>"  placeholder="Client ID" required>
+                            <input class="input100" type="text" name="client-id" value="<?php echo $client_id ?>"  placeholder="Client ID" >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="date" name="date" value="<?php echo $date ?>" placeholder="Date" required>
+                            <input class="input100" type="date" name="date" value="<?php echo $date ?>" placeholder="Date" >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="vehicle-reg" value="<?php echo $vehicle_reg ?>" placeholder="Vehicle Registration No." required>
+                            <input class="input100" type="text" name="vehicle-reg" value="<?php echo $vehicle_reg ?>" placeholder="Vehicle Registration No." >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="time-out" value="<?php echo $time_out ?>" placeholder="Time Out" disabled>
+                            <input class="input100" type="text" name="time-out" value="<?php echo $time_out ?>" placeholder="Time Out" >
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="date" name="return-date" placeholder="Return Date">
+                            <input class="input100" type="date" name="return-date" value="<?php echo $return_date ?>" placeholder="Return Date" >
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16">
+                            <input class="input100" type="date" name="returned-date" placeholder="Returned Date">
                             <span class="focus-input100"></span>
                         </div>
                         <div class="container-login100-form-btn m-t-17">

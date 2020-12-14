@@ -20,6 +20,21 @@
             echo "<font color = 'red'>Failed to delete record!";
         }
     }
+
+
+
+    if(isset($_POST['edit_id'])) {
+        $id_no = $_POST['edit_id'];
+        $query = "UPDATE employee_log WHERE employee_log_id = '$id_no'";
+
+        $data = mysqli_query($conn, $query);
+
+        if ($data){
+            echo "<font color = 'green'>Record Updated!";
+        }else{
+            echo "<font color = 'red'>Failed to update record!";
+        }
+    }
 ?>
 
 <html>
@@ -111,7 +126,7 @@
 
                 if ($results->num_rows > 0){
                     while ($row = $results->fetch_assoc()){
-                        echo "<tr><td>" . $row["date"] . "</td><td>" .  $row["employee_log_id"] . "</td><td>" .  $row["employee_name"] . "</td><td>" . $row["id_no"] . "</td><td>" .  $row["vehicle_option"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["dest_purp"] . "</td><td>" .  $row["time_in"] . "</td><td> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</td></tr>";
+                        echo "<tr><td>" . $row["date"] . "</td><td>" .  $row["employee_log_id"] . "</td><td>" .  $row["employee_name"] . "</td><td>" . $row["id_no"] . "</td><td>" .  $row["vehicle_option"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["dest_purp"] . "</td><td>" .  $row["time_in"] . "</td><td> <a href='/personal-project/Webtech-personal-project/new-employee-log.php?id=". $row["employee_log_id"] ."'><button type = 'button' class = 'btn btn-Warning editbtn'>Edit</button></a><button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</td></tr>";
                     }
                 }else{
                     echo "No Results";

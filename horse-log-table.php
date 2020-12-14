@@ -122,16 +122,17 @@
                 <th>Vehicle Reg</th>
                 <th>Time Out</th>
                 <th>Return Date</th>
+                <th>Returned Date</th>
                 <th>Operation</th>
             </tr>
             <?php 
                 $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-                $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date FROM horse_log";
+                $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date, returned_date FROM horse_log";
                 $results = $conn->query($query);
 
                 if ($results->num_rows > 0){
                     while ($row = $results->fetch_assoc()){
-                        echo "<tr><td>" . $row["horse_id"] . "</td><td>" .  $row["horse_log_id"] . "</td><td>" .  $row["client_name"] . "</td><td>" . $row["client_id"] . "</td><td>" .  $row["date"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["return_date"] . "</td><td> <div> <a href='/personal-project/Webtech-personal-project/new-horse-log.php?id=". $row["horse_log_id"] ."'><button type = 'button' class = 'btn btn-Warning editbtn'>Edit</button></a> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</button></div></td></tr>";
+                        echo "<tr><td>" . $row["horse_id"] . "</td><td>" .  $row["horse_log_id"] . "</td><td>" .  $row["client_name"] . "</td><td>" . $row["client_id"] . "</td><td>" .  $row["date"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["return_date"] ."</td><td>" .  $row["returned_date"] . "</td><td> <div> <a href='/personal-project/Webtech-personal-project/new-horse-log.php?id=". $row["horse_log_id"] ."'><button type = 'button' class = 'btn btn-Warning editbtn'>Edit</button></a> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</button></div></td></tr>";
                     }
                 }else{
                     echo "No Results";

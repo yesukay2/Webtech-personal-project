@@ -7,6 +7,7 @@
         $vehicle_reg = $_POST["vehicle-reg"];
         $time_out = $_POST["time-out"];
         $return_date = $_POST["return-date"];
+        //$returned_date = $_POST["returned-date"];
         
 
         $host = "localhost";
@@ -24,6 +25,7 @@
         }else{
             $sql_query  = "INSERT INTO horse_log (horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date) 
             VALUES ('$horse_id', '$client_name','$client_id', '$date', '$vehicle_reg', '$time_out', '$return_date')";
+            
 
             if ($conn->query($sql_query)){
                 echo "Logged Succesfully";

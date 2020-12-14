@@ -1,0 +1,200 @@
+<?php
+$date;
+$employee_name = "";
+$id_no = 0;
+$vehicle_option = "";
+$vehicle_reg = "";
+$time_out;
+$dest_purp = "";
+
+$employee_log_id_from_get;
+
+$update = 0;
+
+
+
+if(isset($_GET['status'])) {
+
+	$status = $_GET['status'];
+
+	if($status == "true"){
+		echo 'Successfully Logged';
+	}
+	
+}
+
+if(isset($_GET['id'])) {
+    $update = 1;
+    $employee_log_id_from_get = $_GET['id'];
+    $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
+    $query = "SELECT date,  employee_name, id_no, vehicle_option, vehicle_reg, time_out, dest_purp, time_in FROM employee_log WHERE employee_log_id=".$employee_log_id_from_get;
+    $results = $conn->query($query);
+
+    if ($results->num_rows > 0){
+        while ($row = $results->fetch_assoc()){
+            $date = $row["date"];
+            $employee_name = $row["employee_name"];
+            $id_no = $row["id_no"];
+            $vehicle_option = $row["vehicle_option"];
+            $vehicle_reg = $row["vehicle_reg"];
+            $time_out = $row["time_out"];
+            $dest_purp = $row["dest_purp"];
+            $time_in = $row["time_in"];
+              
+        }
+    }else{
+        echo "No Results";
+    }
+    $conn->close();
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="script.js"></script>
+        <title>Saddle Rides Co. Ltd</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <!-- Bootstrap 4.5 CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+        
+    </head>
+
+    <body>
+
+
+            	<!-- Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="col-12 text-right">
+                        <p><a href="IT Support: +233558649054">IT Support: +233558649054</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Top Bar -->
+
+
+            <!-- Navigation -->
+            <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+                <div class="container">
+                    <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="Logo" title="Logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
+                            <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
+                            <li class="nav-item"><a href="employee-table.php" class="nav-link">Employee Table</a></li>
+                            <li class="nav-item"><a href="employee-log-table.php" class="nav-link">Employee Log Table</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navigation -->
+        <table>
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
+                <form class="login100-form flex-sb flex-w" action="employee-log-update.php" method="post">
+                    <span class="login100-form-title">
+                        <a href="">
+                            <i class="fas fa-walking"></i>
+                        </a>
+                    </span>
+                    <input type="hidden" name="employee_log_id" value="<?php echo $employee_log_id_from_get ?>" />
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="date" name="date" value="<?php echo $date ?>"  placeholder="Date" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="employee-name" value="<?php echo $employee_name ?>" placeholder="Employee Name" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="id-no" placeholder="ID No." value="<?php echo $id_no ?>" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="radio">
+                        <div><label><em><strong>Vehicle</strong></em></label></div>
+                        <div>
+                        <?php if($vehicle_option == "yes") { ?>
+                            <input class="form-check-input" type="radio" name="statusradio"  id="yes" onclick="vehiclereg(1)"
+                                value="yes" checked>
+                            <?php } else { ?>
+                                <input class="form-check-input" type="radio" name="statusradio"  id="yes" onclick="vehiclereg(1)"
+                                value="yes" unchecked>
+                            <?php } ?>
+                            <label class="form-check-label" id="yeslabel" for="yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div>
+                            <?php if($vehicle_option == "no") { ?>
+                            <input class="form-check-input" type="radio" name="statusradio" value="<?php echo $vehicle_option ?>"  id="no" onclick="vehiclereg(0)"
+                                value="no" checked>
+                            <?php } else { ?>
+                                <input class="form-check-input" type="radio" name="statusradio" value="<?php echo $vehicle_option ?>"  id="no" onclick="vehiclereg(0)"
+                                value="no" unchecked>
+                            <?php } ?>
+                            <label class="form-check-label" id="nolabel" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="wrap-input100 m-b-16"  id="vehiclereg" style="display: none;">
+                        <input class="input100" type="text" name="vehicle-reg" id="vehicle-reg" value="<?php echo $vehicle_reg ?>"  placeholder="Vehicle Registration No.">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="time-out" value="<?php echo $time_out ?>"  placeholder="Time Out" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="destination&purpose" value="<?php echo $dest_purp ?>"  placeholder="Destination & Purpose" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="time-in" placeholder="Time In" required>
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <div class="w-full beforeNone text-center">
+                            <button type="submit" class="nv-login-submit login100-form-btn" value="submit" name="log">Log</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Script Source Files -->
+
+        <!-- jQuery -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <!-- Bootstrap 4.5 JS -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Popper JS -->
+        <script src="js/popper.min.js"></script>
+        <!-- Font Awesome -->
+        <script src="js/all.min.js"></script>
+
+        <!-- End Script Source Files -->
+    </body>
+
+</html>

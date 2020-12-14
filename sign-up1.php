@@ -81,7 +81,7 @@ if(isset($_GET['status'])) {
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 m-b-16">
-                  <input class="input100" type="mobile" name="mobile" placeholder="Mobile" required>
+                  <input class="input100" type="tel" name="mobile" placeholder="Mobile" required>
                   <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 m-b-16">
