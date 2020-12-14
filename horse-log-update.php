@@ -5,9 +5,9 @@
         $client_id = $_POST["client-id"];
         $date = $_POST["date"];
         $vehicle_reg = $_POST["vehicle-reg"];
-        $time_out = $_POST["time-out"];
+        //$time_out = $_POST["time-out"];
         $return_date = $_POST["return-date"];
-        
+       
 
         $host = "localhost";
         $username = "root";
@@ -22,16 +22,16 @@
         if(mysqli_connect_error()) {
             die('Connection error ('. mysqli_connect_errno().')');
         }else{
-            $sql_query  = "INSERT INTO horse_log (horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date) 
-            VALUES ('$horse_id', '$client_name','$client_id', '$date', '$vehicle_reg', '$time_out', '$return_date')";
+            $horse_log_id_from_get = $_POST["horse_log_id"];
+            $sql_query  = "UPDATE horse_log SET horse_id = '$horse_id', client_name = '$client_name', client_id = '$client_id', date = '$date', vehicle_reg = '$vehicle_reg', return_date = '$return_date' WHERE horse_log_id = '$horse_log_id_from_get'";
 
             if ($conn->query($sql_query)){
-                echo "Logged Succesfully";
+                //echo "Logged Succesfully";
             }else{
                 echo "Error: " . $sql_query . "" . mysqli_error($conn);
             }
             mysqli_close($conn); //close connection
         }
-        header("Location: horse-log1.php?status=true");
+         header("Location: horse-log-table.php?status=true");
     }
 ?> 

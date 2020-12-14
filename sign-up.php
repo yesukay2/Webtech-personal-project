@@ -9,6 +9,8 @@
         $password2 = $_POST["password2"];
         $statusradio = $_POST["statusradio"];
 
+       
+
 
         $host = "localhost";
         $username = "root";
@@ -17,6 +19,14 @@
     
         //database connection 
         $conn = new mysqli($host, $username, $password, $database_name);
+
+
+        //password hash
+        // if ($password1 != $password2){
+        //     echo "Password mismatch";
+        // }else{
+        //     $pass = password_hash($password1, PASSWORD_DEFAULT);
+        // }
 
         // check connection
         
@@ -34,9 +44,13 @@
                     echo "Error: " . "" . mysqli_error($conn);
                 }
                 mysqli_close($conn);
+
+                
             }else{
-                $sql_query2  = "INSERT INTO employees (firstname, lastname, email, mobile, address, password1, password2, statusradio)
-                VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address', '$password1', '$password2', '$statusradio')";
+                $pass = password_hash($password1, PASSWORD_DEFAULT);
+            
+                $sql_query2  = "INSERT INTO employees (firstname, lastname, email, mobile, address, password1, statusradio)
+                VALUES ('$firstname', '$lastname', '$email', '$mobile', '$address', '$pass', '$statusradio')";
 
                 if ($conn->query($sql_query2)){
                     //echo "<script>alert('New Profile Added!')</script>";
@@ -49,9 +63,8 @@
 
                 
             }
+            // header("Location: ./sign-up1.php?status=true");
             
-
-            header("Location: ./sign-up1.php?status=true");
         }
         
     }

@@ -88,11 +88,11 @@
 
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Sign Up</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Employee Log</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Horse Log</a></li>
+                            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
+                            <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
+                            <li class="nav-item"><a href="client-table.php" class="nav-link">Client Table</a></li>
+                            
                         </ul>
 
                     </div>
@@ -107,6 +107,7 @@
                 <th>Email</th>
                 <th>Mobile</th>
                 <th>Address</th>
+                <th>Operations</th>
             </tr>
             <?php 
                 $conn = mysqli_connect("localhost", "root", "", "saddle_rides");

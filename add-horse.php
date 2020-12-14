@@ -18,7 +18,7 @@
         if(mysqli_connect_error()) {
             die('Connection error ('. mysqli_connect_errno().')');
         }else{
-            $sql_query  = "INSERT INTO horses (breed, color, gender)
+            $sql_query  = "INSERT INTO horses (breed, gender, color)
             VALUES ('$breed', '$gender', '$color')";
 
             if ($conn->query($sql_query)){

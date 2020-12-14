@@ -1,4 +1,5 @@
 <?php
+include("sign-up.php");
 if(isset($_GET['status'])) {
 
 	$status = $_GET['status'];
@@ -51,11 +52,9 @@ if(isset($_GET['status'])) {
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Sign Up</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Employee Log</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Horse Log</a></li>
+            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="sign-up1.php" class="nav-link">Sign Up</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
           </ul>
 
         </div>
@@ -63,7 +62,7 @@ if(isset($_GET['status'])) {
     </nav>
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
-            <form class="login100-form flex-sb flex-w" action="sign-up.php" onsubmit="return validate();" method="POST">
+            <form class="login100-form flex-sb flex-w" action="sign-up1.php" onsubmit="return validate();" method="POST">
                 <span class="login100-form-title">
                     <a href="">
                         <i class="fas fa-user"></i>

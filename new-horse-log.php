@@ -1,4 +1,14 @@
 <?php
+$horse_id = 0;
+$client_name = "";
+$client_id = 0;
+$date;
+$vehicle_reg= "";
+$time_out;
+$horse_log_id_from_get;
+
+$update = 0;
+
 if(isset($_GET['status'])) {
 
 	$status = $_GET['status'];
@@ -8,6 +18,30 @@ if(isset($_GET['status'])) {
 	}
 	
 }
+
+if(isset($_GET['id'])) {
+    $update = 1;
+    $horse_log_id_from_get = $_GET['id'];
+    $hello = "hello";
+    $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
+    $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date FROM horse_log WHERE horse_log_id=".$horse_log_id_from_get;
+    $results = $conn->query($query);
+
+    if ($results->num_rows > 0){
+        while ($row = $results->fetch_assoc()){
+            $horse_id = $row["horse_id"];
+            $client_name = $row["client_name"];
+            $client_id = $row["client_id"];
+            $date = $row["date"];
+            $vehicle_reg = $row['vehicle_reg'];
+            $time_out = $row['time_out'];
+        }
+    }else{
+        echo "No Results";
+    }
+    $conn->close();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,10 +85,7 @@ if(isset($_GET['status'])) {
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
-                            <li class="nav-item"><a href="horse-table.php" class="nav-link">Horse Table</a></li>
-                            <li class="nav-item"><a href="horse-log-table.php" class="nav-link">Horse Log Table</a></li>
                         </ul>
 
                     </div>
@@ -63,35 +94,35 @@ if(isset($_GET['status'])) {
             <!-- End Navigation -->
             <div class="container-login100">
                 <div class="wrap-login100 p-t-50 p-b-90 p-l-50 p-r-50">
-                    <form class="login100-form flex-sb flex-w" action="new-horse-log.php" method="POST">
+                    <form class="login100-form flex-sb flex-w" action="horse-log-update.php" method="POST">
                         <span class="login100-form-title">
                             <a href="">
                                 <i class="fas fa-shipping-fast"></i>
                             </a>
                         </span>
-                        <input type="hidden" name="horse_log_id">
+                        <input type="hidden" name="horse_log_id" value="<?php echo $horse_log_id_from_get ?>" />
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="horse-id" placeholder="Horse ID" required>
+                            <input class="input100" type="text" name="horse-id" value="<?php echo $horse_id ?>" placeholder="Horse ID" required>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="client-name" placeholder="Client Name" required>
+                            <input class="input100" type="text" name="client-name" value="<?php echo $client_name ?>"  placeholder="Client Name" required>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="client-id"  placeholder="Client ID" required>
+                            <input class="input100" type="text" name="client-id" value="<?php echo $client_id ?>"  placeholder="Client ID" required>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="date" name="date" placeholder="Date" required>
+                            <input class="input100" type="date" name="date" value="<?php echo $date ?>" placeholder="Date" required>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="vehicle-reg" placeholder="Vehicle Registration No." required>
+                            <input class="input100" type="text" name="vehicle-reg" value="<?php echo $vehicle_reg ?>" placeholder="Vehicle Registration No." required>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">
-                            <input class="input100" type="text" name="time-out" placeholder="Time Out" required>
+                            <input class="input100" type="text" name="time-out" value="<?php echo $time_out ?>" placeholder="Time Out" disabled>
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 m-b-16">

@@ -51,11 +51,12 @@ if(isset($_GET['status'])) {
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Sign Up</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Login</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Employee Log</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Horse Log</a></li>
+					<li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="sign-up1.php" class="nav-link">Sign Up</a></li>
+					<li class="nav-item"><a href="add-horse1.php" class="nav-link">Add Horse</a></li>
+					<li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+					<li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
+					<li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
 				</ul>
 
 			</div>

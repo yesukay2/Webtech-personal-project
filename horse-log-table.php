@@ -20,6 +20,21 @@
             echo "<font color = 'red'>Failed to delete record!";
         }
     }
+
+
+
+    if(isset($_POST['edit_id'])) {
+        $id_no = $_POST['edit_id'];
+        $query = "UPDATE horses WHERE id_no = '$id_no'";
+
+        $data = mysqli_query($conn, $query);
+
+        if ($data){
+            echo "<font color = 'green'>Record Updated!";
+        }else{
+            echo "<font color = 'red'>Failed to update record!";
+        }
+    }
 ?>
 
 <html>
@@ -88,11 +103,9 @@
 
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Sign Up</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Login</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Employee Log</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Horse Log</a></li>
+                            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
+                            <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
                         </ul>
 
                     </div>
@@ -109,17 +122,16 @@
                 <th>Vehicle Reg</th>
                 <th>Time Out</th>
                 <th>Return Date</th>
-                <th>Time In</th>
                 <th>Operation</th>
             </tr>
             <?php 
                 $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-                $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date, time_in FROM horse_log";
+                $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date FROM horse_log";
                 $results = $conn->query($query);
 
                 if ($results->num_rows > 0){
                     while ($row = $results->fetch_assoc()){
-                        echo "<tr><td>" . $row["horse_id"] . "</td><td>" .  $row["horse_log_id"] . "</td><td>" .  $row["client_name"] . "</td><td>" . $row["client_id"] . "</td><td>" .  $row["date"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["return_date"] . "</td><td>" .  $row["time_in"] ."</td><td> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</td></tr>";
+                        echo "<tr><td>" . $row["horse_id"] . "</td><td>" .  $row["horse_log_id"] . "</td><td>" .  $row["client_name"] . "</td><td>" . $row["client_id"] . "</td><td>" .  $row["date"] . "</td><td>" .  $row["vehicle_reg"] . "</td><td>" .  $row["time_out"] ."</td><td>" .  $row["return_date"] . "</td><td> <div> <a href='/personal-project/Webtech-personal-project/new-horse-log.php?id=". $row["horse_log_id"] ."'><button type = 'button' class = 'btn btn-Warning editbtn'>Edit</button></a> <button type = 'button' class = 'btn btn-danger deletebtn'>DELETE</button></div></td></tr>";
                     }
                 }else{
                     echo "No Results";
