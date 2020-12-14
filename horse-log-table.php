@@ -1,40 +1,44 @@
 
 <?php
- $host = "localhost";
- $username = "root";
- $password = "";
- $database_name = "saddle_rides";
-
- //database connection 
- $conn = new mysqli($host, $username, $password, $database_name);
- 
-    if(isset($_POST['delete_id'])) {
-        $id_no = $_POST['delete_id'];
-        $query = "DELETE FROM horse_log WHERE horse_log_id = '$id_no'";
-
-        $data = mysqli_query($conn, $query);
-
-        if ($data){
-            echo "<font color = 'green'>Record deleted!";
-        }else{
-            echo "<font color = 'red'>Failed to delete record!";
-        }
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
     }
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $database_name = "saddle_rides";
 
+    //database connection 
+    $conn = new mysqli($host, $username, $password, $database_name);
+    
+        if(isset($_POST['delete_id'])) {
+            $id_no = $_POST['delete_id'];
+            $query = "DELETE FROM horse_log WHERE horse_log_id = '$id_no'";
 
+            $data = mysqli_query($conn, $query);
 
-    if(isset($_POST['edit_id'])) {
-        $id_no = $_POST['edit_id'];
-        $query = "UPDATE horses WHERE id_no = '$id_no'";
-
-        $data = mysqli_query($conn, $query);
-
-        if ($data){
-            echo "<font color = 'green'>Record Updated!";
-        }else{
-            echo "<font color = 'red'>Failed to update record!";
+            if ($data){
+                echo "<font color = 'green'>Record deleted!";
+            }else{
+                echo "<font color = 'red'>Failed to delete record!";
+            }
         }
-    }
+
+
+
+        if(isset($_POST['edit_id'])) {
+            $id_no = $_POST['edit_id'];
+            $query = "UPDATE horses WHERE id_no = '$id_no'";
+
+            $data = mysqli_query($conn, $query);
+
+            if ($data){
+                echo "<font color = 'green'>Record Updated!";
+            }else{
+                echo "<font color = 'red'>Failed to update record!";
+            }
+        }
 ?>
 
 <html>
@@ -106,6 +110,9 @@
                             <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                         </ul>
 
                     </div>

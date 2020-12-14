@@ -1,14 +1,24 @@
 <?php
-include("sign-up.php");
-if(isset($_GET['status'])) {
+  session_start();
+  if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
+  }
+  session_start();
+  if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
+  }
 
-	$status = $_GET['status'];
 
-	if($status == "true"){
-		echo 'Profile Created Successfully';
-	}
-	
-}
+  include("sign-up.php");
+  if(isset($_GET['status'])) {
+
+    $status = $_GET['status'];
+
+    if($status == "true"){
+      echo 'Profile Created Successfully';
+    }
+    
+  }
 
 ?>
 <!DOCTYPE html>
@@ -55,6 +65,11 @@ if(isset($_GET['status'])) {
             <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="sign-up1.php" class="nav-link">Sign Up</a></li>
             <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+            <li class="nav-item">
+            <form action="clear-session.php" method="post">
+              <button type="submit" >Logout</button>
+            </form>
+          </li>
           </ul>
 
         </div>

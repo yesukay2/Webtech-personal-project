@@ -1,12 +1,16 @@
 <?php
- $host = "localhost";
- $username = "root";
- $password = "";
- $database_name = "saddle_rides";
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
+    }
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $database_name = "saddle_rides";
 
- //database connection 
- $conn = new mysqli($host, $username, $password, $database_name);
- 
+    //database connection 
+    $conn = new mysqli($host, $username, $password, $database_name);
+    
     if(isset($_POST['delete_id'])) {
         $id_no = $_POST['delete_id'];
         $query = "DELETE FROM clients WHERE id_no = '$id_no'";
@@ -92,6 +96,9 @@
                             <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
                             <li class="nav-item"><a href="client-table.php" class="nav-link">Client Table</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                             
                         </ul>
 

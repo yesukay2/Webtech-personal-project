@@ -1,13 +1,17 @@
 <?php
-if(isset($_GET['status'])) {
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
+    }
+    if(isset($_GET['status'])) {
 
-	$status = $_GET['status'];
+        $status = $_GET['status'];
 
-	if($status == "true"){
-		echo 'Successfully Logged';
-	}
-	
-}
+        if($status == "true"){
+            echo 'Successfully Logged';
+        }
+        
+    }
 
 ?>
 
@@ -63,6 +67,9 @@ if(isset($_GET['status'])) {
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
                             <li class="nav-item"><a href="employee-table.php" class="nav-link">Employee Table</a></li>
                             <li class="nav-item"><a href="employee-log-table.php" class="nav-link">Employee Log Table</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                         </ul>
 
                     </div>

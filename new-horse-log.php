@@ -1,53 +1,57 @@
 <?php
-$horse_id = 0;
-$client_name = "";
-$client_id = 0;
-$date;
-$vehicle_reg= "";
-$time_out;
-$horse_log_id_from_get;
-$return_date;
-$returned_date;
-
-$update = 0;
-
-if(isset($_GET['status'])) {
-
-	$status = $_GET['status'];
-
-	if($status == "true"){
-		echo 'Successfully Logged';
-	}
-	
-}
-
-if(isset($_GET['id'])) {
-    $update = 1;
-    $horse_log_id_from_get = $_GET['id'];
-    $hello = "hello";
-    $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-    $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date, returned_date FROM horse_log WHERE horse_log_id=".$horse_log_id_from_get;
-    $results = $conn->query($query);
-
-    if ($results->num_rows > 0){
-        while ($row = $results->fetch_assoc()){
-            $horse_id = $row["horse_id"];
-            $client_name = $row["client_name"];
-            $client_id = $row["client_id"];
-            $date = $row["date"];
-            $vehicle_reg = $row['vehicle_reg'];
-            $time_out = $row['time_out'];
-            $return_date = $row['return_date'];
-            $returned_date = $row['returned_date'];
-
-
-            
-        }
-    }else{
-        echo "No Results";
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
     }
-    $conn->close();
-}
+    $horse_id = 0;
+    $client_name = "";
+    $client_id = 0;
+    $date;
+    $vehicle_reg= "";
+    $time_out;
+    $horse_log_id_from_get;
+    $return_date;
+    $returned_date;
+
+    $update = 0;
+
+    if(isset($_GET['status'])) {
+
+        $status = $_GET['status'];
+
+        if($status == "true"){
+            echo 'Successfully Logged';
+        }
+        
+    }
+
+    if(isset($_GET['id'])) {
+        $update = 1;
+        $horse_log_id_from_get = $_GET['id'];
+        $hello = "hello";
+        $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
+        $query = "SELECT horse_log_id, horse_id, client_name, client_id, date, vehicle_reg, time_out, return_date, returned_date FROM horse_log WHERE horse_log_id=".$horse_log_id_from_get;
+        $results = $conn->query($query);
+
+        if ($results->num_rows > 0){
+            while ($row = $results->fetch_assoc()){
+                $horse_id = $row["horse_id"];
+                $client_name = $row["client_name"];
+                $client_id = $row["client_id"];
+                $date = $row["date"];
+                $vehicle_reg = $row['vehicle_reg'];
+                $time_out = $row['time_out'];
+                $return_date = $row['return_date'];
+                $returned_date = $row['returned_date'];
+
+
+                
+            }
+        }else{
+            echo "No Results";
+        }
+        $conn->close();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -93,6 +97,9 @@ if(isset($_GET['id'])) {
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                         </ul>
 
                     </div>

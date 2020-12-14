@@ -1,52 +1,56 @@
 <?php
-$date;
-$employee_name = "";
-$id_no = 0;
-$vehicle_option = "";
-$vehicle_reg = "";
-$time_out;
-$dest_purp = "";
-
-$employee_log_id_from_get;
-
-$update = 0;
-
-
-
-if(isset($_GET['status'])) {
-
-	$status = $_GET['status'];
-
-	if($status == "true"){
-		echo 'Successfully Logged';
-	}
-	
-}
-
-if(isset($_GET['id'])) {
-    $update = 1;
-    $employee_log_id_from_get = $_GET['id'];
-    $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
-    $query = "SELECT date,  employee_name, id_no, vehicle_option, vehicle_reg, time_out, dest_purp, time_in FROM employee_log WHERE employee_log_id=".$employee_log_id_from_get;
-    $results = $conn->query($query);
-
-    if ($results->num_rows > 0){
-        while ($row = $results->fetch_assoc()){
-            $date = $row["date"];
-            $employee_name = $row["employee_name"];
-            $id_no = $row["id_no"];
-            $vehicle_option = $row["vehicle_option"];
-            $vehicle_reg = $row["vehicle_reg"];
-            $time_out = $row["time_out"];
-            $dest_purp = $row["dest_purp"];
-            $time_in = $row["time_in"];
-              
-        }
-    }else{
-        echo "No Results";
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
     }
-    $conn->close();
-}
+    $date;
+    $employee_name = "";
+    $id_no = 0;
+    $vehicle_option = "";
+    $vehicle_reg = "";
+    $time_out;
+    $dest_purp = "";
+
+    $employee_log_id_from_get;
+
+    $update = 0;
+
+
+
+    if(isset($_GET['status'])) {
+
+        $status = $_GET['status'];
+
+        if($status == "true"){
+            echo 'Successfully Logged';
+        }
+        
+    }
+
+    if(isset($_GET['id'])) {
+        $update = 1;
+        $employee_log_id_from_get = $_GET['id'];
+        $conn = mysqli_connect("localhost", "root", "", "saddle_rides");
+        $query = "SELECT date,  employee_name, id_no, vehicle_option, vehicle_reg, time_out, dest_purp, time_in FROM employee_log WHERE employee_log_id=".$employee_log_id_from_get;
+        $results = $conn->query($query);
+
+        if ($results->num_rows > 0){
+            while ($row = $results->fetch_assoc()){
+                $date = $row["date"];
+                $employee_name = $row["employee_name"];
+                $id_no = $row["id_no"];
+                $vehicle_option = $row["vehicle_option"];
+                $vehicle_reg = $row["vehicle_reg"];
+                $time_out = $row["time_out"];
+                $dest_purp = $row["dest_purp"];
+                $time_in = $row["time_in"];
+                
+            }
+        }else{
+            echo "No Results";
+        }
+        $conn->close();
+    }
 
 
 ?>
@@ -103,6 +107,9 @@ if(isset($_GET['id'])) {
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
                             <li class="nav-item"><a href="employee-table.php" class="nav-link">Employee Table</a></li>
                             <li class="nav-item"><a href="employee-log-table.php" class="nav-link">Employee Log Table</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                         </ul>
 
                     </div>

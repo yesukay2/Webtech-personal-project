@@ -1,13 +1,17 @@
 <?php
-if(isset($_GET['status'])) {
+    session_start();
+    if(!isset($_SESSION['email']) && !isset($_SESSION['id_no'])){
+    header("Location: index.php");
+    }
+    if(isset($_GET['status'])) {
 
-	$status = $_GET['status'];
+        $status = $_GET['status'];
 
-	if($status == "true"){
-		echo 'Horse Profile Created Successfully';
-	}
-	
-}
+        if($status == "true"){
+            echo 'Horse Profile Created Successfully';
+        }
+        
+    }
 
 ?>
 
@@ -54,6 +58,9 @@ if(isset($_GET['status'])) {
                             <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="employee-log1.php" class="nav-link">Employee Log</a></li>
                             <li class="nav-item"><a href="horse-log1.php" class="nav-link">Horse Log</a></li>
+                            <form action="clear-session.php" method="post">
+                                <button type="submit" >Logout</button>
+                            </form>
                         </ul>
 
                     </div>
